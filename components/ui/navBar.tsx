@@ -68,13 +68,12 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
         </div>
 
         {/* navigation */}
-        <div className={` ${scrolled? 'bg-white/40 rounded-[50px] ': ''} grid grid-cols-3  w-full md:w-[clamp(22rem,11vw,32rem)] h-full text-[clamp(1rem,1.1vw,8rem)] font-inter items-center justify-center md:pl-2 p-6 md:pr-2 gap-x-[clamp(2rem,1vw,8rem)]`} >
+        <div className={` ${scrolled? 'bg-white/40 rounded-[50px] ': ''} grid grid-cols-3  w-full md:w-[clamp(22rem,11vw,32rem)]  text-[clamp(1rem,1.2vw,8rem)] font-inter items-center justify-center p-3 md:p-6 gap-x-[clamp(2rem,1vw,8rem)]`} >
             
             <button className={`${scrolled? "hover:scale-[1.05] duration-80":"p-3 hover:bg-black  hover:text-white "} flex   rounded-full flex-wrap   font-medium items-center justify-center `}  onClick={()=>setOpen(!open)} >About</button>
             <button className={`${scrolled? "hover:scale-[1.05] duration-80":"hover:bg-black  hover:text-white p-3"} flex flex-wrap rounded-full font-medium  items-center justify-center`} >Skills</button>
             <motion.button
              
-             whileTap={{scale:0.9, boxShadow: "0px 10px 25px rgba(75, 245, 115, 0.2)" }}
              className={`${scrolled? 'hover:text-[#4BF573]' : 'bg-[#4BF573] rounded-4xl   p-2'} flex  flex-wrap  font-medium items-center justify-center`} >Contact</motion.button>
         </div>
      </div>
