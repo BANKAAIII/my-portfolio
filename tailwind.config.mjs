@@ -9,6 +9,7 @@ const config = {
       fontFamily: {
         // ◄── Map your custom utilities to use the Next.js CSS variable
         josefin: ["var(--font-josefin)", "sans-serif"], 
+        inter: ["var(--font-inter)", "sans-serif"],
       },
     },
   },

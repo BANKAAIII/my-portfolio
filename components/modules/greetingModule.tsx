@@ -1,44 +1,52 @@
 "use client"
 
-import React from 'react';
+import React, { SetStateAction } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Greeting from '@/components/ui/greeting';
 import { useEffect, useState } from 'react';
+import { Dispatch } from 'react';
 
+interface GreetingModuleProps{
+    scrollLock: boolean;
+    setScrollLock: Dispatch<SetStateAction<boolean>>;
+  }
 
-const GreetingModule : React.FC = () => {
+const GreetingModule : React.FC<GreetingModuleProps> = ({setScrollLock,scrollLock}) => {
 
   const [greeting , setGreeting] = useState<boolean>(false);
 
   useEffect( ()=>{
-    let timer = setTimeout( ()=>{
+      setScrollLock(true);
       setGreeting(true);
-    } , 800 );
+  
    
     let timer2 = setTimeout( ()=>{
       setGreeting(false);
-    },4000 );
+    },3300 );
 
-    
+    let unlockTimer = setTimeout(() => {
+    setScrollLock(false);
+  }, 3300 + 800);
 
     return () => {
-      clearTimeout(timer );
+      
       clearTimeout(timer2);
+      unlockTimer && clearTimeout(unlockTimer);
     }
   } , [] );
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait"> 
      {greeting && <motion.div
       initial={{ opacity:1  }}
       animate={{ opacity:1 }}
-      exit={{ opacity:0 ,y:20 }}
-      transition={{ duration: 0.6, ease: "easeInOut"  }}
-      className="flex flex-col w-full  h-screen flex-1 items-center absolute z-10 justify-center font-sans dark:bg-black " >
+      exit={{ opacity:0 ,y:800 }}
+      transition={{ duration: 0.6, ease: "easeInOut", delay:0.9 }}
+      className={`flex flex-col w-full overflow-hidden  h-screen items-center fixed inset-0  justify-center  z-999  font-sans dark:bg-black `} >
       
-      <div className=" flex flex-wrap overflow-hidden" >
+     
         <Greeting title="NAMASTE 🙏" trigger={greeting} />
-      </div>
+      
      
     </motion.div> }
     </AnimatePresence>

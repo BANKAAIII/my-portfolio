@@ -3,7 +3,6 @@
 
 @theme {
   --font-josefin: var(--font-josefin);
- 
+  --font-inter: var(--font-inter);
   --text-fluid-display: clamp(2rem, 8vw + 1rem, 7rem);
 }
-
