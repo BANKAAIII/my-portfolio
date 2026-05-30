@@ -19,7 +19,11 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/components/*":["./components/*"],
+      "@/ui/*":["./components/ui/*"],
+      "@/modules/*":["./components/modules/*"],
+      "@/layouts/*":["./components/layouts/*"],
     }
   },
   "include": [
@@ -29,6 +33,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "tailwind.config.mjs"  ],
   "exclude": ["node_modules"]
 }
