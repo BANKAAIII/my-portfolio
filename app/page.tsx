@@ -7,6 +7,8 @@ import LandingPagePart1 from "@/components/modules/landingPAgePart1";
 import LandingPagePart2 from '@/components/modules/landingPagePart2';
 import LandingPagePart3 from '@/components/modules/landingPagePart3';
 import LandingPagePart4 from '@/components/modules/landingPagePart4';
+import LandingPagePart5 from '@/components/modules/landingPagePart5';
+import LandingPagePart6 from '@/components/modules/landingPagePart6';
 
 export default function Home() {
   // Starts locked as true so greeting mounts on load
@@ -32,6 +34,8 @@ export default function Home() {
           <LandingPagePart2 />
           <LandingPagePart3 />
           <LandingPagePart4 />
+          <LandingPagePart5 />
+          <LandingPagePart6 />
         </div>
       )}
     </div>

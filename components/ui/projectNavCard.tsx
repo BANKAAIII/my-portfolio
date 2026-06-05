@@ -11,7 +11,7 @@ const ProjectNavCard = ({title,link}:projectNavCardProps) => {
   const [hover,setHover] = useState<boolean>(false);
   const [press,setPress] = useState<boolean>(false);
   return (
-    <div className="flex flex-col md:flex-col cursor-pointer rounded-4xl  md:bg-transparent items-center justify-center md:justify-start w-[clamp(18rem,30vw,40rem)] h-[clamp(5rem,6vw,12rem)] m-5" >
+    <div className="flex flex-col md:flex-col cursor-pointer rounded-4xl  md:bg-transparent items-center justify-center md:justify-start w-[clamp(18rem,27vw,40rem)] h-[clamp(5rem,6vw,12rem)] m-5 " >
       {/* title */}
       <motion.div 
         className={` grid bg-black/10 md:bg-transparent  rounded-4xl flex-row items-center justify-center md:grid-cols-[80%_20%] w-full h-[80%]  `}
