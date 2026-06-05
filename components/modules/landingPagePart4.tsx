@@ -5,7 +5,7 @@ import {motion} from "framer-motion";
 
 const LandingPagePart4 = () => {
   return (
-    <div className="flex flex-col items-center md:grid md:grid-rows-[15%_85%] w-full min-h-screen" >
+    <div className="flex flex-col items-center md:grid md:grid-rows-[15%_85%] w-full md:min-h-screen" >
       <div className="flex w-full h-full bg-[#000000]" ></div>
       {/* white screen */}
       <div className="flex flex-col w-full h-full" >
