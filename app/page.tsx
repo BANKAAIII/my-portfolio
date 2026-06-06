@@ -10,10 +10,13 @@ import LandingPagePart4 from '@/components/modules/landingPagePart4';
 import LandingPagePart5 from '@/components/modules/landingPagePart5';
 import LandingPagePart6 from '@/components/modules/landingPagePart6';
 
+import { aboutScrollLockAtom } from '@/store/globalAtoms';
+import { useAtomValue } from 'jotai';
+
 export default function Home() {
   // Starts locked as true so greeting mounts on load
   const [scrollLock, setScrollLock] = useState<boolean>(true);
-  const imagee = "/agoraLandingPage.tsx"
+  const aboutScrollLock = useAtomValue(aboutScrollLockAtom);
 
   return (
     <div 
@@ -29,7 +32,9 @@ export default function Home() {
       </AnimatePresence>
       
       {!scrollLock && (
-        <div className="w-full min-h-screen flex flex-col items-center justify-center overflow-x-hidden">
+        <div className={`w-full flex flex-col items-center justify-center overflow-x-hidden ${
+            aboutScrollLock ? "h-100dvh overflow-hidden" : "min-h-screen overflow-y-auto"
+          }`}>
           <LandingPagePart1 />
           <LandingPagePart2 />
           <LandingPagePart3 />
