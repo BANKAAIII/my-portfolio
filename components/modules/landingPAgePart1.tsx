@@ -51,7 +51,7 @@ const TitleWordsVariants : Variants = {
   }
 
   return (
-    <div className=" flex w-screen min-h-screen items-center justify-start flex-col  ">
+    <div className=" flex w-screen items-center justify-start flex-col  ">
       {/* div to account for navbar space */}
       <div className="flex w-full h-30 mt-30 md:mt-0" />
       {/* hero section */}

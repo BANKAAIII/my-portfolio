@@ -73,7 +73,7 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
         </div>
 
         {/* navigation */}
-        <div className={` ${scrolled? 'bg-white/40 rounded-[50px] ': ''} grid grid-cols-3   md:w-[clamp(22rem,39vw,72rem)] h-[clamp(3rem,3.5vw,5rem)] text-[clamp(1rem,1vw,8rem)] font-inter items-center justify-center p-2 gap-x-[clamp(1rem,1.2vw,2rem)]`} >
+        <div className={` ${scrolled? 'bg-white/40 rounded-[50px] ': ''} grid grid-cols-3   md:w-[clamp(22rem,25vw,72rem)] h-[clamp(3rem,3.5vw,5rem)] text-[clamp(1rem,1vw,8rem)] font-inter items-center justify-center p-2 gap-x-[clamp(1rem,1.2vw,2rem)]`} >
             
             <button className={`${scrolled? "hover:scale-[1.05] duration-80":"p-3 hover:bg-black  hover:text-white "} flex   rounded-full flex-wrap   font-medium items-center justify-center `}  onClick={()=>{setOpen(!open) ; setAboutScrollLock(true) ; alert(aboutScrollLock)}} >About</button>
             <button className={`${scrolled? "hover:scale-[1.05] duration-80":"hover:bg-black  hover:text-white p-3"} flex flex-wrap rounded-full font-medium  items-center justify-center`} >Skills</button>

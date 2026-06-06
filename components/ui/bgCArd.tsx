@@ -28,6 +28,11 @@ interface showCaseProjectsInterface{
 }
 
 export default function Smooth2DCornerExpand() {
+
+  function handleProjectSwitch(projectNo:number){
+    
+  }
+
   const containerRef = useRef<HTMLDivElement>(null);
 
   // 1. Track the raw scroll progress through a 200vh runway
@@ -78,16 +83,7 @@ export default function Smooth2DCornerExpand() {
            <div className="flex flex-col w-full h-full jusitfy-start" >
             {/* switching projects button */}
             <ShowcaseProject {...projects[0]}/>
-           {/* ProjectShowcase - heading */}
-           {/* Project tech stack */}
-
-           {/* Project Metadata */}
-           {/* Projrct Preview */}
-           {/* All Projects navigation */}
-
-           {/* blogs and posts carousel*/}
-           {/* contact me title */}
-           {/* contact form */}
+           
            </div>
           
         </motion.div>
