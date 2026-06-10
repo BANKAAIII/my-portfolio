@@ -4,7 +4,7 @@ import Flat2DCornerExpand from '../ui/bgCArd';
 
 const LandingPagePart2 = () => {
   return (
-    <div className="flex w-full min-h-screen items-center" >
+    <div className="flex w-full min-h-[70dvh] items-center" >
         <Flat2DCornerExpand/>
     </div>
   )
