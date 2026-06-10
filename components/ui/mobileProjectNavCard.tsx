@@ -12,11 +12,15 @@ const MobileProjectNavCard = ({title,link,hoverColor}:projectNavCardProps) => {
   const [hover,setHover] = useState<boolean>(false);
   const [press,setPress] = useState<boolean>(false);
   return (
-   
-    <div className="relative z-60 flex w-full h-full items-center font-inter tracking-[-3%] text-black/80 pl-[5dvw] text-2xl" >
+    <motion.div 
+     className={`relative z-50 flex w-full h-full items-center font-inter tracking-[-3%] text-black/80 pl-[5dvw] text-2xl ${hoverColor}`}
+     initial={{}}
+     whileTap={{}}
+      >
+    <div className="absolute z-60 flex w-full h-full items-center font-inter tracking-[-3%] text-black/80 pl-[5dvw] text-2xl" >
         {title}
     </div>
-    
+    </motion.div>
   )
 }
 

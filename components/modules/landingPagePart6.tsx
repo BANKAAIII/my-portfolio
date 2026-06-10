@@ -5,9 +5,9 @@ const LandingPagePart6 = () => {
   return (
     <div className="flex flex-col w-full pt-[30vw] pb-[30vw] md:pt-0 md:pb-0 md:min-h-screen  items-center justify-center " > 
       <div className="flex w-full items-center justify-center font-inter tracking-[-3] font-semibold text-[clamp(2rem,5vw,6rem)]" >Let's Work Together.</div>
-      <div className="flex w-full items-center justify-center font-inter  tracking-[-1] text-[clamp(0.75rem,2vw,2.25rem)] text-[#565656] text-center" >Integrating Advanced technologies and Ideas together to turn dreamy idea’s into reality</div>
+      <div className="flex w-full items-center justify-center font-inter  tracking-[-1] text-[clamp(0.9rem,2vw,2.25rem)] text-[#565656] text-center" >Integrating Advanced technologies and Ideas together to turn dreamy idea’s into reality</div>
       
-      <div className="flex w-full gap-x-[clamp(1.75rem,3.1vw,3.25rem)] mt-[clamp(1.75rem,3.1vw,3.25rem)] mb-[clamp(1.75rem,3.1vw,3.25rem)]  flex-row items-center justify-center h-[clamp(0.75rem,3vw,3.25rem)]" >
+      <div className="flex w-full gap-x-[clamp(1.75rem,3.1vw,3.25rem)] mt-[clamp(1.75rem,3.1vw,3.25rem)] mb-[clamp(1.75rem,3.1vw,3.25rem)]  flex-row items-center justify-center h-[clamp(2rem,3vw,3.25rem)]" >
         <motion.button
             className="flex h-full w-[clamp(6.25rem,10vw,12.5rem)] bg-black rounded-[20px] text-white items-center justify-center  text-[clamp(0.75rem,1.3vw,2rem)] font-inter tracking-[-1] "        
         >
