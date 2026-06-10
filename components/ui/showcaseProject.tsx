@@ -1,13 +1,25 @@
 "use client"
 
 import { StaticImageData } from 'next/image';
-import { useState } from 'react';
+import { act, useState } from 'react';
 import React from 'react'
 import agoraLandingPage from "../../public/agoraLandingPage.jpeg";
 import {AnimatePresence, easeInOut, motion} from "framer-motion"
 import  Image  from 'next/image';
+import { useAtom} from 'jotai';
+import { projectsAtom } from '@/store/globalAtoms';
 
 type AnimationPhase = "initial" | "animate" | "returning" ;
+
+const techStackVariants ={
+    initial:{
+        opacity:0 , x:100
+    },
+    animate:{
+        opacity:1, x:1
+    },
+    exit:{opacity:0}
+}
 
 const arrowSwapVariantsUp={
     initial:{
@@ -57,65 +69,63 @@ const arrowSwapVariantsUp={
   }
 
 
-const projects : showCaseProjectsInterface[] = [
-    { 
-        projectNo: 1,
-        name:"Agora-blockchain",
-        techStack:["next.js","javaScript","tailwind"],
-        shortDescription:" A decentralised voting platform utilizing blockchains ultimate power to make way for secure and confidential voting process.",
-        problemStatement:"Agora required a complete interface evolution to match its powerful open-source capabilities. The platform’s core functionality was robust, but the user interface needed to be elevated to feel modern, intuitive, and highly professional.",
-        solution:"Every piece of the interface had to be re-engineered to lower the barrier to entry for new users while ensuring that complex contributor workflows remained exceptionally clean, structured, and completely accessible.",
-        LandingPageImage:agoraLandingPage
-
-    },{
-        projectNo: 2,
-        name:"metawerse",
-        techStack:["next.js","typescript","tailwind","framer-motion"],
-        shortDescription:" A decentralised voting platform utilizing blockchains ultimate power to make way for secure and confidential voting process.",
-        problemStatement:"Agora required a complete interface evolution to match its powerful open-source capabilities. The platform’s core functionality was robust, but the user interface needed to be elevated to feel modern, intuitive, and highly professional.",
-        solution:"Every piece of the interface had to be re-engineered to lower the barrier to entry for new users while ensuring that complex contributor workflows remained exceptionally clean, structured, and completely accessible.",
-        LandingPageImage:agoraLandingPage
-    }
-]
-
 interface showCaseProjectsInterface{
     
-         projectNo:number;
-    name: string;
+    id :string;
+    title: string;
     techStack : string[];
     shortDescription: string;
     problemStatement: string;
     solution: string;
-    LandingPageImage: StaticImageData;
+    landingPageImage: string;
+    githubLink:string;
+    liveLink:string;
    
    
 }
 
 const ShowcaseProject : React.FC<showCaseProjectsInterface>  = ({
-    projectNo,
-    name,
+    id,
+    title,
     techStack,
     shortDescription,
     problemStatement,
     solution,
-    LandingPageImage
+    landingPageImage
 }) => {
 
   const [swapAnimation,setSwapAnimation] = useState<AnimationPhase>("initial");
-
+    const [projects, setProjects] = useAtom(projectsAtom || null);
+    const [index,setindex] = useState(0);
+    const [activeProject,setActiveProject] = useState<showCaseProjectsInterface | undefined>(projects[index]);
   // project switcher
+
+  function handleProjectSwitch() {
+  setindex((prevIndex) => {
+    const nextIndex = (prevIndex + 1) % projects.length;
+    
+    // Update the active project based on the calculated index
+    setActiveProject(projects[nextIndex]);
+    
+    return nextIndex;
+  });
+}
+
+ 
   
 
   return (
-    <div className="flex flex-col items-center justify-center md:justify-start  w-full h-[clamp-(1.5rem,2.5vw,3rem)]  " >
+    <motion.div className="flex flex-col items-center justify-center md:justify-start w-full   " >
+        
      {/* switching projects button */}
-     <div className="flex w-full  text-white font-inter font-light text-[clamp(1rem,1.3vw,1.4rem)] gap-5 md:gap-8 items-center justify-center md:justify-start" >
-        <div className="opacity-[70%]" >0{projectNo}/05</div>
+     <div className="flex w-full  text-white flex-col md:flex-row font-inter font-light text-[clamp(1rem,1.3vw,1.4rem)] gap-5 md:gap-8 items-center justify-center md:justify-start" >
+        <div className="opacity-[70%]" >0{id}/05</div>
         <motion.button
             className="flex flex-wrap items-center justify-center  rounded-full  overflow-hidden flex-row "
             onClick={ ()=>{
                 if(swapAnimation === "initial"){
                     setSwapAnimation("animate");
+                    handleProjectSwitch();
                 }
             } }
         >   
@@ -156,45 +166,59 @@ const ShowcaseProject : React.FC<showCaseProjectsInterface>  = ({
          </motion.button>
      </div>
      {/* ProjectShowcase - heading */}
-     <div className="grid grid-col md:grid-cols-[70%_30%] w-full h-[clamp(10rem,13vw,16rem)] mt-[clamp(1rem,2vw,3rem)]" >
+     
+     <div className="flex flex-col md:flex-row items-center justify-between w-full h-full mt-[clamp(1.9rem,2vw,3rem)]" >
+
+
+        {/* column 1 : showcaseTitle , project Metadata  */}
+        <div className="flex w-full h-full flex-col items-center justify-between" >
+            {/* showcase Title */}
             <div className="flex flex-col w-full h-full font-inter font-medium text-[clamp(1.8rem,3vw,4rem)] tracking-tight items-center justify-center" >
                 <h1 className=" flex w-full text-center md:text-start flex-wrap md:ml-[clamp(2rem,6vw,10rem)]" >Project Showcase - Displaying <br/>my best projects.</h1>
             </div>
-            {/* Project tech stack */}
-            <div className="flex-col w-full h-full items-end hidden md:flex">
+            {/* projectMetaData */}
+            <div className="flex flex-row md:flex-row  items-center justify-center md:justify-between w-full  mt-[clamp(3.8rem,4vw,5rem)]" >
+                <div className="flex flex-col w-full h-full items-center justify-center md:justify-start  md:w-min  " >
+                    <div className="flex flex-row w-full items-center justify-center font-inter font-light md:justify-start text-[clamp(0.9rem,1vw,3rem)] mb-[clamp(0.6rem,0.8vw,2rem)] opacity-[40%]" >Project</div>
+                    <div className="flex flex-row w-full items-center justify-center md:justify-start text-center  md:text-start text-[clamp(0.8rem,1.3vw,1.5rem)]" >{activeProject?.title}</div>
+                </div>
+                <div className="flex flex-col w-full h-full md:w-min items-center  justify-start  " >
+                    <div className="flex flex-row w-full items-center justify-center font-inter font-light md:justify-start text-[clamp(0.9rem,1vw,3rem)] mb-[clamp(0.6rem,0.8vw,2rem)] opacity-[40%]" >Role</div>
+                    <div className="flex flex-row w-full items-center justify-center md:justify-start text-center md:text-start text-[clamp(0.8rem,1.3vw,1.5rem)]" >{activeProject?.techStack[0]}</div>
+                </div>
+                <div className="flex flex-col w-full h-full items-center md:w-min justify-start " >
+                    <div className="flex flex-row w-full items-center justify-center font-inter font-light md:justify-start text-[clamp(0.9rem,1vw,3rem)] mb-[clamp(0.6rem,0.8vw,2rem)] opacity-[40%]" >Date</div>
+                    <div className="flex flex-row w-full items-center justify-center md:justify-start text-center  md:text-start text-[clamp(0.8rem,1.3vw,1.5rem)] " >07/06</div>
+                </div>
+            </div>
+        </div>
+
+
+        {/* techStack */}
+        <div className=" flex-col w-full h-full items-end hidden md:flex">
+                    <AnimatePresence>
                 {
-                    techStack.map((tech,index)=>{
-                        return <motion.div
-                                 key={index} 
-                                 whileInView={{opacity:1,x:0}}
-                                 initial={{opacity:0,x:100}}
-                                 transition={{duration:1.2,ease:"easeIn"}}
+                    activeProject?.techStack.map((tech,index)=>{
+                        return(
+                            <motion.div
+                                 variants={techStackVariants}
+                                 key={`${activeProject.id}-${tech}`} 
+                                 whileInView="animate"
+                                 initial="initial"
+                                 transition={{duration:1,ease:"easeIn"}}
                                  className="pl-[clamp(2rem,4vw,5rem)] pr-[clamp(2rem,2vw,3rem)] flex items-center justify-center m-[clamp(1rem,1.2vw,1.3rem)]  border-1 rounded-full p-1.5" >
                             {tech}
-                        </motion.div>
+                        </motion.div>)
                     })
                 }
+                </AnimatePresence>
             </div>
+            
      </div>
     
-     {/* Project Metadata */}
-     <div className="flex grid-rows-[33.3%_33.3%_33.3%] md:flex-row  items-center justify-center md:justify-start w-full  mt-[clamp(3.8rem,4vw,5rem)] p-[clamp(1rem,1.5vw,3rem)] gap-[clamp(5rem,8vw,12rem)]" >
-      <div className="flex flex-col w-full h-full items-center justify-center md:justify-start  md:w-min  " >
-        <div className="flex flex-row w-full items-center justify-center font-inter font-light md:justify-start text-[clamp(1rem,1vw,3rem)] mb-[clamp(0.6rem,0.8vw,2rem)] opacity-[40%]" >Project</div>
-        <div className="flex flex-row w-full items-center justify-center md:justify-start text-center  md:text-start text-[clamp(1.2rem,1.3vw,1.5rem)]" >{name}</div>
-      </div>
-      <div className="flex flex-col w-full h-full md:w-min items-center  justify-start  " >
-        <div className="flex flex-row w-full items-center justify-center font-inter font-light md:justify-start text-[clamp(1rem,1vw,3rem)] mb-[clamp(0.6rem,0.8vw,2rem)] opacity-[40%]" >Role</div>
-        <div className="flex flex-row w-full items-center justify-center md:justify-start text-center md:text-start text-[clamp(1.2rem,1.3vw,1.5rem)]" >FullStack</div>
-      </div>
-      <div className="flex flex-col w-full h-full items-center md:w-min justify-start " >
-        <div className="flex flex-row w-full items-center justify-center font-inter font-light md:justify-start text-[clamp(1rem,1vw,3rem)] mb-[clamp(0.6rem,0.8vw,2rem)] opacity-[40%]" >Date</div>
-        <div className="flex flex-row w-full items-center justify-center md:justify-start text-center  md:text-start text-[clamp(1.2rem,1.3vw,1.5rem)] " >07/06</div>
-      </div>
-      
-     </div>
+    
      {/* Projrct Preview */}
-    </div>
+    </motion.div>
   )
 }
 

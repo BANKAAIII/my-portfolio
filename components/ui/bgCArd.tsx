@@ -1,21 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import ShowcaseProject from './showcaseProject';
 import { StaticImageData } from 'next/image';
 import agoraLandingPage from "../../public/agoraLandingPage.jpeg";
+import { projectsAtom } from '@/store/globalAtoms';
+import { useAtomValue } from 'jotai';
 
-const projects : showCaseProjectsInterface[] = [
-    { 
-        projectNo: 1,
-        name:"Agora-blockchain",
-        techStack:["next.js","javaScript","tailwind"],
-        shortDescription:" A decentralised voting platform utilizing blockchains ultimate power to make way for secure and confidential voting process.",
-        problemStatement:"Agora required a complete interface evolution to match its powerful open-source capabilities. The platform’s core functionality was robust, but the user interface needed to be elevated to feel modern, intuitive, and highly professional.",
-        solution:"Every piece of the interface had to be re-engineered to lower the barrier to entry for new users while ensuring that complex contributor workflows remained exceptionally clean, structured, and completely accessible.",
-        LandingPageImage:agoraLandingPage
-
-    }
-]
 
 interface showCaseProjectsInterface{
     projectNo:number;
@@ -29,9 +19,16 @@ interface showCaseProjectsInterface{
 
 export default function Smooth2DCornerExpand() {
 
-  function handleProjectSwitch(projectNo:number){
-    
+  function handleProjectSwitch(index:number,setIndex:any , totalCount :number){
+    if(index > totalCount-1){
+      setindex(0);
+    } 
+    index +=1;
+    setIndex(index);
   }
+
+  const [index,setindex] = useState(0);
+  const projects = useAtomValue(projectsAtom);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -78,7 +75,7 @@ export default function Smooth2DCornerExpand() {
           style={{ clipPath: clipPathString }}
           className="w-full top-0 bg-black text-white flex flex-col items-center justify-center px-[6vw] " 
         >
-           <div className="flex w-full h-[clamp(14rem,15vw,20rem)] " />
+           <div className="flex w-full h-[clamp(14rem,18vw,20rem)] " />
 
            <div className="flex flex-col w-full h-full jusitfy-start" >
             {/* switching projects button */}
