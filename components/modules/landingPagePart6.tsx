@@ -24,7 +24,7 @@ const LandingPagePart6 = () => {
       </div>
 
       <div className="flex w-full items-center justify-center " >
-        <div className="flex w-[clamp(16.81rem,50vw,66.8rem)] bg-[#acacac]/30 rounded-[10px] h-[clamp(2.68rem,8vw,9.81rem)] items-center justify-center md:justify-between" >
+        <div className="flex w-[clamp(16.81rem,50vw,66.8rem)] bg-[#acacac]/30 rounded-[10px] h-[clamp(3.68rem,8vw,9.81rem)] mt-3 items-center justify-center md:justify-between" >
             {/* hidden when < mdscreens */}
             <div className=" hidden md:flex h-full items-center justify-center font-inter font-semibold text-[#bcbcbc] tracking-[-1] text-[clamp(2rem,2.1vw,2.25rem)] pl-10" > Follow Me</div>
             <div 
