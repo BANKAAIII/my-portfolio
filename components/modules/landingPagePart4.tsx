@@ -20,7 +20,7 @@ const LandingPagePart4 = () => {
          </div>
         </div>
         {/* mobile breakpoints */}
-        <div className="grid grid-rows-[25%_25%_25%_25%] w-full h-full mt-20 mb-20" >
+        <div className="md:hidden grid grid-rows-[25%_25%_25%_25%] w-full h-full mt-20 mb-20" >
           
           <motion.div 
                className={`relative z-50 flex w-full h-full items-center font-inter tracking-[-3%] text-black/80 pl-[5dvw] text-2xl bg-[#f2f2f2]`}

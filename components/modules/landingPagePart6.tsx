@@ -1,5 +1,6 @@
 import React from 'react'
 import{ motion }from "framer-motion";
+import Image from 'next/image';
 
 const LandingPagePart6 = () => {
   return (
@@ -25,14 +26,14 @@ const LandingPagePart6 = () => {
       <div className="flex w-full items-center justify-center " >
         <div className="flex w-[clamp(16.81rem,50vw,66.8rem)] bg-[#acacac]/30 rounded-[10px] h-[clamp(2.68rem,8vw,9.81rem)] items-center justify-center md:justify-between" >
             {/* hidden when < mdscreens */}
-            <div className=" hidden md:flex items-center justify-center font-inter font-semibold text-[#bcbcbc] tracking-[-2] text-[clamp(2rem,2.1vw,2.25rem)] pl-10" > Follow Me</div>
+            <div className=" hidden md:flex h-full items-center justify-center font-inter font-semibold text-[#bcbcbc] tracking-[-1] text-[clamp(2rem,2.1vw,2.25rem)] pl-10" > Follow Me</div>
             <div 
-                className="flex flex-row items-center justify-center gap-x-10 md:pr-10"
+                className="flex flex-row h-full items-center justify-center gap-x-2 md:gap-x-4 md:pr-10"
             >
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
+                <div><Image width={90} height={90} src={"/github.png"} alt={""} className="flex h-full aspect-square p-4 md:p-2 invert-100"/></div>
+                <div><Image width={90} height={90} src={"/discord.png"} alt={""} className="flex h-full aspect-square p-4 md:p-2 "/></div>
+                <div><Image width={90} height={90} src={"/twitter.png"} alt={""} className="flex h-full aspect-square p-4 md:p-2 "/></div>
+                <div><Image width={90} height={90} src={"/email.png"} alt={""} className="flex h-full aspect-square p-4 md:p-2 invert-100"/></div>
             </div>
         </div>
       </div>
