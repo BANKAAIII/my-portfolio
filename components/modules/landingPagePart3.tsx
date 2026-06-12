@@ -14,8 +14,8 @@ const LandingPagePart3 = () => {
   const projects  = useAtomValue(projectsAtom);
 
   return (
-    <div className="flex w-full h-[60dvh] bg-[#000000] flex-col items-center justify-between">
-      <div className="flex flex-col items-center justify-between w-[clamp(8rem,70vw,100rem)] h-[clamp(20rem,40vw,50rem)] bg-linear-to-bl from-[#9CB38D] to-[#3A2D2D] rounded-4xl" >
+    <div className="flex w-full h-[80dvh] bg-[#000000] flex-col items-center justify-between pt-[clamp(5rem,12vw,15rem)] pb-[clamp(5rem,12vw,15rem)]">
+      <div className="flex flex-col items-center justify-center w-[clamp(8rem,70vw,100rem)] h-[clamp(20rem,40vw,50rem)] bg-linear-to-bl from-[#9CB38D] to-[#3A2D2D] rounded-4xl" >
         {/* image  */}
         <div className="flex w-full h-full p-10 items-center justify-center " >
 
