@@ -197,10 +197,10 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
                                  <Link className="text-center cursor-pointer"
                                     href="https://github.com/BANKAIII"
                                 >Twitter</Link>
-                                 <Link className="text-center cursor-pointer"
+                                 <Link className="text-center cursor-pointer hidden md:flex"
                                     href="https://github.com/BANKAIII"
                                 >Medium</Link>
-                                 <Link className="text-center cursor-pointer"
+                                 <Link className="text-center cursor-pointer hidden md:flex"
                                     href="https://github.com/BANKAIII"
                                 >Vercel</Link>
                                  <Link className="text-center cursor-pointer"
