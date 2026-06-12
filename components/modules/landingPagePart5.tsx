@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation, Variants } from "framer-motion";
+import Image from 'next/image';
 
 interface blogData {
     title: string;
@@ -64,9 +65,13 @@ const LandingPagePart5 = () => {
                         onTap={() => row1Controls.start("animate")}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="shrink-0 w-[clamp(8.7rem,18vw,24rem)] h-[clamp(8.7rem,18vw,19.5rem)] rounded-[20px] bg-[#D6C1FD] m-4 flex items-center justify-center p-4 cursor-pointer"
+                        className="relative flex-col z-50 shrink-0 w-[clamp(8.7rem,18vw,24rem)] h-[clamp(8.7rem,18vw,19.5rem)] rounded-[20px] bg-[#D6C1FD] m-4 flex items-center justify-start overflow-hidden cursor-pointer"
                     >
-                        {content.title}
+                        <div className="relative z-60 flex w-full -top-[clamp(0.1rem,0.6vw,1rem)] justify-end flex-row pr-3 " >
+                        <Image width={90} height={90} src={"/bookmark1.png"} alt={""} className="w-[clamp(1.5rem,3vw,5rem)] aspect-square "/>
+                      </div>
+                      <div className="absolute z-70 flex w-full h-full items-center justify-center text-center p-2" >{content.title}</div>
+                        
                     </motion.div>
                 ))}
             </motion.div>
@@ -89,9 +94,13 @@ const LandingPagePart5 = () => {
                         onTap={() => row2Controls.start("animate")}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="shrink-0 w-[clamp(8.7rem,18vw,24rem)] h-[clamp(8.7rem,18vw,19.5rem)] bg-[#C2FE94] rounded-[20px] m-4 flex items-center justify-center p-4 cursor-pointer"
+                        className="relative z-50 shrink-0 w-[clamp(8.7rem,18vw,24rem)] h-[clamp(8.7rem,18vw,19.5rem)] bg-[#C2FE94] right-0 rounded-[20px] m-4 flex flex-col items-center justify-start overflow-hidden cursor-pointer"
                     >
-                        {content.title}
+                      <div className="relative z-60 flex w-full -top-[clamp(0.1rem,0.6vw,1rem)] justify-end flex-row pr-3 " >
+                        <Image width={90} height={90} src={"/bookmark1.png"} alt={""} className="w-[clamp(1.5rem,3vw,5rem)] aspect-square "/>
+                      </div>
+                      <div className="absolute z-70 flex w-full h-full items-center justify-center text-center font-inter  p-2" >{content.title}</div>
+                        
                     </motion.div>
                 ))}
             </motion.div>

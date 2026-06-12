@@ -179,9 +179,9 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
                         </div>
                         
                         {/* book call button */}
-                        <div className="flesx flex-col w-full items-center font-inter justify-center md:justify-start " >
+                        <div className="flex flex-col w-full items-center font-inter justify-center md:justify-start " >
                               <motion.button
-                                         className="flex h-[clamp(2rem,2.8vw,4rem)] w-[clamp(4.25rem,9vw,12rem)] bg-black rounded-full text-white items-center justify-center  text-[clamp(0.75rem,1.1vw,1.5rem)] font-inter tracking-[-1] cursor-pointer select-none  mt-[clamp(2rem,3vw,6rem)] ml-[clamp(2rem,3vw,6rem)] mr-[clamp(2rem,3vw,6rem)]"    
+                                         className="flex h-[clamp(2rem,2.8vw,4rem)] w-[clamp(4.25rem,9vw,12rem)] bg-black rounded-full text-white items-center justify-center  text-[clamp(0.75rem,1.1vw,1.5rem)] font-inter tracking-[-1] cursor-pointer select-none  mt-[clamp(2rem,3vw,6rem)]  ml-[clamp(2rem,3vw,6rem)] mr-[clamp(2rem,3vw,6rem)]"    
                                          whileTap={{backgroundColor:"#ffffff", webkitTextFillColor:"#000000" , border:2 , borderBlockColor:"#000000"}}    
                                      >
                                          Hire Me
@@ -189,7 +189,7 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
                         </div>
 
                         {/* links */}
-                        <div className="flesx flex-row w-full items-center font-inter pl-[clamp(2rem,3vw,6rem)] pr-[clamp(2rem,3vw,6rem)] pt-[clamp(1rem,3vw,6rem)] justify-center pb-[clamp(1rem,3vw,6rem)]" >
+                        <div className="flesx flex-row w-full items-center font-inter pl-[clamp(2rem,3vw,6rem)] pr-[clamp(2rem,3vw,6rem)] pt-[clamp(1rem,3vw,6rem)] justify-center pb-[clamp(1rem,3vw,6rem)] mb-[clamp(2rem,3vw,6rem)]" >
                              <div className="text-gray-800 flex w-full flex-row items-center justify-center lg:justify-start text-center lg:text-start text-[clamp(1rem,1.1vw,3rem)]  gap-[clamp(0.75rem,1.1vw,1.5rem)] underline-offset-2 underline" >
                                 <Link className="text-center cursor-pointer"
                                     href="https://github.com/BANKAIII"
