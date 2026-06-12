@@ -6,6 +6,7 @@ import { Inter } from "next/font/google";
 import NavBar from "@/components/ui/navBar";
 import {Provider} from "jotai";
 
+
 const inter = Inter({ 
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
