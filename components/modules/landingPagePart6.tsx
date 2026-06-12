@@ -9,12 +9,14 @@ const LandingPagePart6 = () => {
       
       <div className="flex w-full gap-x-[clamp(1.75rem,3.1vw,3.25rem)] mt-[clamp(1.75rem,3.1vw,3.25rem)] mb-[clamp(1.75rem,3.1vw,3.25rem)]  flex-row items-center justify-center h-[clamp(2rem,3vw,3.25rem)]" >
         <motion.button
-            className="flex h-full w-[clamp(6.25rem,10vw,12.5rem)] bg-black rounded-[20px] text-white items-center justify-center  text-[clamp(0.75rem,1.3vw,2rem)] font-inter tracking-[-1] "        
+            className="flex h-full w-[clamp(6.25rem,10vw,12.5rem)] bg-black rounded-[20px] text-white items-center justify-center  text-[clamp(0.75rem,1.3vw,2rem)] font-inter tracking-[-1] cursor-pointer select-none"    
+            whileTap={{backgroundColor:"#ffffff", webkitTextFillColor:"#000000" , border:2 , borderBlockColor:"#000000"}}    
         >
             Hire Me
         </motion.button>
         <motion.button
-            className="flex h-full w-[clamp(6.25rem,10vw,12.5rem)] border-2 rounded-[20px] border-dashed items-center justify-center  text-[clamp(0.75rem,1.3vw,2rem)] font-inter tracking-[-1] "        
+            className="flex h-full w-[clamp(6.25rem,10vw,12.5rem)] border-2 rounded-[20px] border-dashed items-center justify-center  text-[clamp(0.75rem,1.3vw,2rem)] font-inter tracking-[-1] select-none"   
+            whileTap={{backgroundColor:"#000000", webkitTextFillColor:"#ffffff"}}     
         >
             Email
         </motion.button>
