@@ -91,14 +91,17 @@ const LandingPagePart5 = () => {
                         onHoverStart={() => row2Controls.stop()}
                         onHoverEnd={() => row2Controls.start("animate")}
                         onTapStart={() => row2Controls.stop()}
-                        onTap={() => row2Controls.start("animate")}
+                        onTap={() => row2Controls.start("animate") }
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="relative z-50 shrink-0 w-[clamp(8.7rem,18vw,24rem)] h-[clamp(8.7rem,18vw,19.5rem)] bg-[#C2FE94] right-0 rounded-[20px] m-4 flex flex-col items-center justify-start overflow-hidden cursor-pointer"
                     >
-                      <div className="relative z-60 flex w-full -top-[clamp(0.2rem,0.6vw,1rem)] justify-end flex-row pr-3 " >
+                      <motion.div className="relative z-60 flex w-full -top-[clamp(0.2rem,0.6vw,1rem)] justify-end flex-row pr-3 "
+                        whileTap={{scale:1.3}}
+                        whileHover={{scale:1.3}}
+                      >
                         <Image width={90} height={90} src={"/bookmark1.png"} alt={""} className="w-[clamp(1.5rem,3vw,5rem)] aspect-square "/>
-                      </div>
+                      </motion.div>
                       <div className="absolute z-70 flex w-full h-full items-center justify-center text-center font-inter  p-2" >{content.title}</div>
                         
                     </motion.div>

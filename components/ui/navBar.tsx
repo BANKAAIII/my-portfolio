@@ -179,7 +179,7 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
                         </div>
                         
                         {/* book call button */}
-                        <div className="flex flex-col w-full items-center font-inter justify-center md:justify-start " >
+                        <div className="flex flex-row w-full items-center font-inter justify-center md:justify-start " >
                               <motion.button
                                          className="flex h-[clamp(2rem,2.8vw,4rem)] w-[clamp(4.25rem,9vw,12rem)] bg-black rounded-full text-white items-center justify-center  text-[clamp(0.75rem,1.1vw,1.5rem)] font-inter tracking-[-1] cursor-pointer select-none  mt-[clamp(2rem,3vw,6rem)]  ml-[clamp(2rem,3vw,6rem)] mr-[clamp(2rem,3vw,6rem)]"    
                                          whileTap={{backgroundColor:"#ffffff", webkitTextFillColor:"#000000" , border:2 , borderBlockColor:"#000000"}}    
