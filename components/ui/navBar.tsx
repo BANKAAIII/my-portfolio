@@ -20,6 +20,7 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
 
     const scrollRef = useRef<HTMLDivElement>(null);
 
+    const [readM,setREadM] = useState<boolean>(false);
     const [scrolled , setScrolled] = useState<boolean>(false);
     const [open,setOpen] = useState<boolean>(false);
     const [contactClicked, setContactClicked] = useState<boolean>(false);
@@ -141,23 +142,35 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
                                 setOpen(false)
                                 setShowClose(false);
                                 setAboutScrollLock(false);
+                                setREadM(false);
                              }}
                     >Close</button>
                  </div>
 
                     {/* content */}
-                    <div className="flex flex-col w-full items-center justify-start " >
+                    <div className=" relative z-50 flex flex-col w-full items-center justify-start " >
                         {/* paragraph 1 */}
                         <div className="flex w-full flex-row items-center justify-center lg:text-start text-center md:justify-start font-inter text-[clamp(1rem,1.8vw,2rem)] pt-[clamp(2rem,3vw,6rem)] pl-[clamp(2rem,3vw,6rem)] pr-[clamp(2rem,3vw,6rem)]" >A focused Full Stack engineer based out of the vibrant landscapes of Mumbai, India.</div>
                         {/* paragraph 2 */}
+                       
                         <div className="flex w-full flex-row items-center justify-center lg:text-start text-center md:justify-start font-inter text-[clamp(1rem,1.8vw,2rem)] pt-[clamp(2rem,3vw,6rem)] pl-[clamp(2rem,3vw,6rem)] pr-[clamp(2rem,3vw,6rem)]" >I build layouts remotely and collaborate across open-source ecosystems. This focused autonomy is my secret weapon for writing clean, modular code that scales seamlessly across screens.</div>
                         {/* title & paragraph 1 */} 
                         <div className="flex flex-col w-full font-inter items-center" >
                             {/* head line  */}
                             <div className="flex w-full items-center justify-center lg:justify-start text-center lg:text-start font-medium text-[clamp(1.4rem,2.5vw,3rem)] pt-[clamp(2rem,3vw,6rem)] pl-[clamp(2rem,3vw,6rem)] pr-[clamp(2rem,3vw,6rem)]" >Creating Delightful Experiences</div>
+                        </div>
+
+                        {
+                        readM && <motion.div 
+                        initial={{opacity:0 , y:-30}}
+                        animate={{opacity:1,y:1}}
+                        transition={{duration:0.5,stiffness:80}}
+                        className="flex flex-col w-full font-inter items-center" >
+                        <div className="flex flex-col w-full font-inter items-center" >
                             {/* sub lines */}
                             <div className="flex w-full items-center justify-center lg:justify-start text-center lg:text-start font-light text-[clamp(1rem,1.5vw,2rem)] pt-[clamp(0.7rem,1vw,2rem)] pl-[clamp(2rem,3vw,6rem)] pr-[clamp(2rem,3vw,6rem)]" >To me, delightful experiences mean raw performance. I thrive on transforming complex Figma concepts into instant-loading, production-ready interfaces where every transition feels completely fluid.</div>
                         </div>
+                       
                         {/* title & paragraph 2 */} 
                         <div className="flex flex-col w-full font-inter items-center" >
                             {/* head line  */}
@@ -210,9 +223,20 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
                                     href="https://github.com/BANKAIII"
                                 >My Email</Link>
                              </div>
-                        </div>
+                        </div></motion.div>
+                        }
+                        {
+                            !readM && <button className="flex flex-col items-center justify-center w-full " onClick={()=>{setREadM(!readM)}} >
+                                <h1 className="mt-[clamp(1rem,1.5vw,2rem)] flex flex-wrap w-full items-center justify-center" >ReadMore</h1>
+                                <div className="flex w-full h-[clamp(1rem,1.2vw,1.4rem)] items-center justify-center"  >
+                                    <Image width={18} height={18} src={"/arrowDown.png"} alt={""} className="invert flex h-full aspect-square animate-bounce duration-700 mt-4"/>
+                                </div>
+                                
+                                </button>
+                        }
 
                     </div>
+                   
                 </motion.div>
                 
             </motion.div>
