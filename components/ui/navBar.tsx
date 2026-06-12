@@ -7,6 +7,7 @@ import  { useAtom } from 'jotai';
 import { aboutScrollLockAtom } from '@/store/globalAtoms';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface NavBarProps{
   
@@ -75,7 +76,7 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
         {/* navigation */}
         <div className={` ${scrolled? 'bg-white/40 rounded-[50px] ': ''} grid grid-cols-3   md:w-[clamp(22rem,25vw,72rem)] h-[clamp(3rem,3.5vw,5rem)] text-[clamp(1rem,1vw,8rem)] font-inter items-center justify-center p-2 gap-x-[clamp(1rem,1.2vw,2rem)]`} >
             
-            <button className={`${scrolled? "hover:scale-[1.05] duration-80":"p-3 hover:bg-black  hover:text-white "} flex   rounded-full flex-wrap   font-medium items-center justify-center `}  onClick={()=>{setOpen(!open) ; setAboutScrollLock(true) ; alert(aboutScrollLock)}} >About</button>
+            <button className={`${scrolled? "hover:scale-[1.05] duration-80":"p-3 hover:bg-black  hover:text-white "} flex   rounded-full flex-wrap   font-medium items-center justify-center `}  onClick={()=>{setOpen(!open) ; setAboutScrollLock(true) }} >About</button>
             <button className={`${scrolled? "hover:scale-[1.05] duration-80":"hover:bg-black  hover:text-white p-3"} flex flex-wrap rounded-full font-medium  items-center justify-center`} >Skills</button>
             <motion.button
              
@@ -111,7 +112,7 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
                                 setOpen(false)
                                 setShowClose(false);
                                 setAboutScrollLock(false);
-                                alert(aboutScrollLock);
+                                
                              }} >
                                 x
                             </motion.div>
@@ -170,6 +171,45 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
                             <div className="flex w-full items-center justify-center lg:justify-start text-center lg:text-start font-medium text-[clamp(1.4rem,2.5vw,3rem)] pt-[clamp(2rem,3vw,6rem)] pl-[clamp(2rem,3vw,6rem)] pr-[clamp(2rem,3vw,6rem)]" >My Journey & Next Steps</div>
                             {/* sub lines */}
                             <div className="flex w-full items-center justify-center lg:justify-start text-center lg:text-start font-light text-[clamp(1rem,1.5vw,2rem)] pt-[clamp(0.7rem,1vw,2rem)] pl-[clamp(2rem,3vw,6rem)] pr-[clamp(2rem,3vw,6rem)]" >I’m constantly expanding my technical horizon—moving from solid backend systems and cryptographic protocols to global open-source ecosystems.I’m actively looking for full-time opportunities and Internships.</div>
+                        </div>
+
+                        {/* lets connect line  */}
+                        <div className="flesx flex-col w-full items-center font-inter" >
+                             <div className="text-gray-800 flex w-full items-center justify-center lg:justify-start text-center lg:text-start text-[clamp(1rem,1.1vw,3rem)]  pt-[clamp(1rem,3vw,6rem)] pl-[clamp(2rem,3vw,6rem)] pr-[clamp(2rem,3vw,6rem)]" >Let’s connect and make something awesome together!</div>
+                        </div>
+                        
+                        {/* book call button */}
+                        <div className="flesx flex-col w-full items-center font-inter " >
+                              <motion.button
+                                         className="flex h-[clamp(2rem,2.8vw,4rem)] w-[clamp(4.25rem,9vw,12rem)] bg-black rounded-full text-white items-center justify-center  text-[clamp(0.75rem,1.1vw,1.5rem)] font-inter tracking-[-1] cursor-pointer select-none  mt-[clamp(2rem,3vw,6rem)] ml-[clamp(2rem,3vw,6rem)] mr-[clamp(2rem,3vw,6rem)]"    
+                                         whileTap={{backgroundColor:"#ffffff", webkitTextFillColor:"#000000" , border:2 , borderBlockColor:"#000000"}}    
+                                     >
+                                         Hire Me
+                                     </motion.button>
+                        </div>
+
+                        {/* links */}
+                        <div className="flesx flex-row w-full items-center font-inter pl-[clamp(2rem,3vw,6rem)] pr-[clamp(2rem,3vw,6rem)] pt-[clamp(1rem,3vw,6rem)] justify-center pb-[clamp(1rem,3vw,6rem)]" >
+                             <div className="text-gray-800 flex w-full flex-row items-center justify-center lg:justify-start text-center lg:text-start text-[clamp(1rem,1.1vw,3rem)]  gap-[clamp(0.75rem,1.1vw,1.5rem)] underline-offset-2 underline" >
+                                <Link className="text-center cursor-pointer"
+                                    href="https://github.com/BANKAIII"
+                                >Github</Link>
+                                 <Link className="text-center cursor-pointer"
+                                    href="https://github.com/BANKAIII"
+                                >Twitter</Link>
+                                 <Link className="text-center cursor-pointer"
+                                    href="https://github.com/BANKAIII"
+                                >Medium</Link>
+                                 <Link className="text-center cursor-pointer"
+                                    href="https://github.com/BANKAIII"
+                                >Vercel</Link>
+                                 <Link className="text-center cursor-pointer"
+                                    href="https://github.com/BANKAIII"
+                                >Resume</Link>
+                                 <Link className="text-center cursor-pointer"
+                                    href="https://github.com/BANKAIII"
+                                >My Email</Link>
+                             </div>
                         </div>
 
                     </div>
