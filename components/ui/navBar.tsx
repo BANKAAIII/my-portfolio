@@ -81,7 +81,7 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
             <button className={`${scrolled? "hover:scale-[1.05] duration-80":"hover:bg-black  hover:text-white p-3"} flex flex-wrap rounded-full font-medium  items-center justify-center`} >Skills</button>
             <motion.button
              
-             whileTap={{scale:0.9, boxShadow: "0px 10px 25px rgba(75, 245, 115, 0.2)" }}
+             whileTap={{scale:0.9 ,webkitTextFillColor:"#[#4BF573]]"}}
              className={`${scrolled? 'hover:text-[#4BF573]' : 'bg-[#4BF573] rounded-4xl p-1 md:p-2 '} flex  flex-wrap  font-medium items-center justify-center`} ><h1>Contact</h1></motion.button>
         </div>
      </div>
