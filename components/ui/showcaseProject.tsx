@@ -180,15 +180,15 @@ const ShowcaseProject : React.FC<showCaseProjectsInterface>  = ({
             <div className="flex flex-row md:flex-row  items-center justify-center md:justify-between w-full  mt-[clamp(3.8rem,4vw,5rem)]" >
                 <div className="flex flex-col w-full h-full items-center justify-center md:justify-start  md:w-min  " >
                     <div className="flex flex-row w-full items-center justify-center font-inter font-light md:justify-start text-[clamp(0.9rem,1vw,3rem)] mb-[clamp(0.6rem,0.8vw,2rem)] opacity-[40%]" >Project</div>
-                    <div className="flex flex-row w-full items-center justify-center md:justify-start text-center  md:text-start text-[clamp(0.8rem,1.3vw,1.5rem)]" >{activeProject?.title}</div>
+                    <motion.div variants={{techStackVariants}} initial={"initial"} animate={"animate"} exit={"exit"} transition={{duration:0.4}} className="flex flex-row w-full items-center justify-center md:justify-start text-center  md:text-start text-[clamp(1rem,1.3vw,1.5rem)]" >{activeProject?.title}</motion.div>
                 </div>
                 <div className="flex flex-col w-full h-full md:w-min items-center  justify-start  " >
                     <div className="flex flex-row w-full items-center justify-center font-inter font-light md:justify-start text-[clamp(0.9rem,1vw,3rem)] mb-[clamp(0.6rem,0.8vw,2rem)] opacity-[40%]" >Role</div>
-                    <div className="flex flex-row w-full items-center justify-center md:justify-start text-center md:text-start text-[clamp(0.8rem,1.3vw,1.5rem)]" >{activeProject?.techStack[0]}</div>
+                    <div className="flex flex-row w-full items-center justify-center md:justify-start text-center md:text-start text-[clamp(1rem,1.3vw,1.5rem)]" >{activeProject?.techStack[0]}</div>
                 </div>
                 <div className="flex flex-col w-full h-full items-center md:w-min justify-start " >
                     <div className="flex flex-row w-full items-center justify-center font-inter font-light md:justify-start text-[clamp(0.9rem,1vw,3rem)] mb-[clamp(0.6rem,0.8vw,2rem)] opacity-[40%]" >Date</div>
-                    <div className="flex flex-row w-full items-center justify-center md:justify-start text-center  md:text-start text-[clamp(0.8rem,1.3vw,1.5rem)] " >07/06</div>
+                    <div className="flex flex-row w-full items-center justify-center md:justify-start text-center  md:text-start text-[clamp(1rem,1.3vw,1.5rem)] " >07/06</div>
                 </div>
             </div>
         </div>

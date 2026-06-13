@@ -4,6 +4,7 @@ import Shell from "@/components/layouts/shell";
 import { Josefin_Sans } from "next/font/google";
 import { Inter } from "next/font/google";
 import NavBar from "@/components/ui/navBar";
+import Footer from "@/components/ui/footer";
 import {Provider} from "jotai";
 
 
@@ -34,6 +35,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <Shell>
           {children}
         </Shell>  
+        <Footer/>
         </Provider>
         </body>
       </html>
