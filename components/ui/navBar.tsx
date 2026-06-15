@@ -20,6 +20,7 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
 
     const scrollRef = useRef<HTMLDivElement>(null);
 
+    const [contactMe,setContactMe] = useState<boolean>(false);
     const [readM,setREadM] = useState<boolean>(false);
     const [scrolled , setScrolled] = useState<boolean>(false);
     const [open,setOpen] = useState<boolean>(false);
@@ -82,9 +83,28 @@ const NavBar : React.FC<{children?:NavBarProps}> = ({children }) => {
             <motion.button
              
              whileTap={{scale:0.9 ,webkitTextFillColor:"#[#4BF573]]"}}
-             className={`${scrolled? 'hover:text-[#4BF573]' : 'bg-[#4BF573] rounded-4xl p-1 md:p-2 '} flex  flex-wrap  font-medium items-center justify-center`} ><h1>Contact</h1></motion.button>
+             className={`${scrolled? 'hover:text-[#4BF573]' : 'bg-[#4BF573] rounded-4xl p-1 md:p-2 '} flex  flex-wrap  font-medium items-center justify-center`}
+             onClick={()=>{
+                setContactMe(!contactMe)
+             }} ><h1>Contact</h1></motion.button>
         </div>
      </div>
+
+     <AnimatePresence mode="wait">
+        {
+            contactMe && <motion.div className="z-980 fixed inset-0 flex flex-col items-center justify-center w-screen h-screen backdrop-blur-lg" >
+                <motion.div className="relative z-100 flex-col items-center justify-between w-[85dvw] h-[60dvh] bg-[#ffffff] rounded-2xl overflow-hidden">
+                    <div className="relative z-150 flex flex-col items-center justify-start bg-purple-500 w-full h-[85%] rounded-bl-[120px] rounded-tl-2xl rounded-tr-2xl " ></div>
+                    <div className="absolute z-200 flex flex-row items-center justify-start w-full h-full bg-amber-500" >
+                        <motion.button className="flex h-full aspect-square text-3xl items-center " onClick={()=>{
+                            setContactMe(false);
+                        }} >x</motion.button>
+                    </div>
+                    
+                </motion.div>
+            </motion.div>
+        }
+     </AnimatePresence>
 
     <AnimatePresence mode="wait"> 
     {
